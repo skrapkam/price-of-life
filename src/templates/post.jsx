@@ -29,7 +29,7 @@ const Post = ({ data: { prismicPost } }) => {
       <TextBlock>
       <h1>{data.title.text}</h1>
       <div css={PostWrapper__Content} dangerouslySetInnerHTML={{ __html: data.content.html }} />
-      <Link to="/">Back</Link>
+      <a href="/">Back</a>
       </TextBlock>
     </Wrapper>
   )

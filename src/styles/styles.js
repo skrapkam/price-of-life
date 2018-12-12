@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
    margin: 144px 0 0 25vw;
    padding-right: 32px;
    @media (max-width: 595px) {
-       margin: 8px;
+       margin: 16px 8px 16px;
        padding: 8px;
    }
 `
@@ -31,6 +31,7 @@ export const PostWrapper = styled.div`
     max-width: 360px;
     h1 {
         margin: 0 0 16px;
+        line-height: 3rem;
     }
 `
 

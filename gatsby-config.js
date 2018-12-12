@@ -36,7 +36,25 @@ module.exports = {
         linkResolver:({ node, key, value }) => post => `/${post.uid}`,
       },
     },
-   
+
+    {
+      resolve: `gatsby-plugin-favicon`,
+      options: {
+        logo: './src/favicon.png',
+        injectHTML: true,
+        icons: {
+          android: true,
+          appleIcon: true,
+          appleStartup: true,
+          coast: false,
+          favicons: true,
+          firefox: true,
+          twitter: false,
+          yandex: false,
+          windows: false,
+    }
+  }
+},
     'gatsby-plugin-offline',
     'gatsby-transformer-remark',
 

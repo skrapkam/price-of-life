@@ -1,15 +1,47 @@
-import React from 'react'
-import { Link } from 'gatsby'
+import React from "react"
+import { graphql, Link } from "gatsby"
+import Nav from '../components/Nav'
+import { Wrapper, GridWrapper } from '../styles/styles'
 
-import Layout from '../components/layout'
-
-const IndexPage = () => (
-  <Layout>
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
+const Index = ({ data }) => (
+  <Wrapper>
+    <Nav />
+    <GridWrapper>
+   {data.allPrismicPost.edges.map(({ node }) => (
+        <li key={node.id}>
+              <p>{node.uid}</p>
+              <p>
+                <Link to={node.uid}>{node.data.title.text}</Link>
+              </p>
+              <p>{node.data.author.text}</p>
+        </li>
+        
+      ))}
+      </GridWrapper>
+  </Wrapper>
 )
 
-export default IndexPage
+export default Index
+
+export const pageQuery = graphql`
+  query IndexQuery {
+    allPrismicPost(sort: { fields: [uid], order: DESC }) {
+      edges {
+        node {
+          uid
+          data {
+            title {
+              text
+            }
+            author {
+              text 
+            }
+            content {
+              html 
+            }
+          }
+        }
+      }
+    }
+  }
+`

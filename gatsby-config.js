@@ -1,10 +1,15 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Default Starter',
+    title: 'The Price of Life',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
-    {
+    `gatsby-plugin-catch-links`,
+     {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: 'gatsby-starter-default',
@@ -16,6 +21,25 @@ module.exports = {
         icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/pages`,
+        name: 'pages',
+      },
+    },
+    {
+      resolve: `gatsby-source-prismic`,
+      options: {
+        repositoryName: `the-price-of-life`, 
+        accessToken: `${process.env.API_KEY}`,
+        linkResolver:({ node, key, value }) => post => `/${post.uid}`,
+      },
+    },
+   
     'gatsby-plugin-offline',
+    'gatsby-transformer-remark',
+
   ],
+  
 }

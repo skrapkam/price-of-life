@@ -24,7 +24,7 @@ const Index = ({ data }) => (
         <li key={node.id}>
               <p>{node.uid}</p>
               <p>
-                <Link to={node.uid}>{node.data.title.text}</Link>
+                <a href={node.uid}>{node.data.title.text}</a>
               </p>
               <p>{node.data.author.text}</p>
         </li>

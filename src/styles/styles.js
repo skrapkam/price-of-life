@@ -44,5 +44,6 @@ export const TextBlock = styled.div`
     }
     h1 {
         margin: 0 0 16px;
+        line-height: 3rem;
     }
 `

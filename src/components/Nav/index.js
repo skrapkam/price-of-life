@@ -2,8 +2,6 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
 
-import { Link } from "gatsby"
-
 import { Component } from 'react'
 import { node } from 'prop-types';
 
@@ -26,11 +24,11 @@ class Nav extends Component {
          <div css={NavStyle}>
 
             <div css={NavStyle__Left}>
-             <Link to="/">The Price of Life</Link>  {this.props.title ? " / " + this.props.title : null}
+             <a href="/">The Price of Life</a>  {this.props.title ? " / " + this.props.title : null}
              </div>
 
              <div css={NavStyle__Right}> 
-             <Link to="/info">Info</Link>
+             <a href="/info">Info</a>
              </div>
          </div>
      )

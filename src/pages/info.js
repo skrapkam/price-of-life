@@ -25,6 +25,7 @@ export default class Info extends Component {
         </TextBlock>
         <TextBlock>
             <li>Sam Chang</li>
+            <li>Greg Tom</li>
         </TextBlock>
       </Wrapper>
     )
